@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -24,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:id="@+id/imageView"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/btnPasteUrl"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -37,13 +41,15 @@
         android:layout_centerHorizontal="true" />
 
     <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
-        android:layout_below="@+id/imageView"
+        android:indeterminate="false"
+        android:visibility="invisible"
+        android:layout_alignBottom="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:indeterminate="false" />
+        android:layout_marginBottom="140dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,6 +57,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/tvProgress"
-        android:layout_below="@+id/imageView"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
+</ScrollView>

@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     String url;
     EditText editTextUrl;
+    Bitmap image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                download();
+                save();
             }
         });
     }
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             if (desc.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
                 CharSequence pasteText = cm.getPrimaryClip().getItemAt(0).getText();
                 editTextUrl.setText(pasteText);
+                download();
             } else {
                 Log.e("asd", "not text");
                 //makeToast("Unable to paste non-text data. Please copy from Instagram again.");
@@ -105,7 +107,11 @@ public class MainActivity extends AppCompatActivity {
         //imgDisplay.setImageResource(RES_PLACEHOLDER);
         final TextView tvPercent = (TextView) findViewById(R.id.tvProgress);
         final ProgressBar pbLoading = (ProgressBar) findViewById(R.id.progressBar);
-        url = editTextUrl.getText().toString()+"/media";
+        imgDisplay.setVisibility(View.INVISIBLE);
+        tvPercent.setVisibility(View.VISIBLE);
+        tvPercent.setText("0%");
+        pbLoading.setVisibility(View.VISIBLE);
+        url = editTextUrl.getText().toString()+"media";
         final BasicImageDownloader downloader = new BasicImageDownloader(new BasicImageDownloader.OnImageLoaderListener() {
             @Override
             public void onError(BasicImageDownloader.ImageError error) {
@@ -113,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
                         error.getMessage(), Toast.LENGTH_LONG).show();
                 error.printStackTrace();
                 //imgDisplay.setImageResource(RES_ERROR);
-                tvPercent.setVisibility(View.GONE);
-                pbLoading.setVisibility(View.GONE);
+                tvPercent.setVisibility(View.INVISIBLE);
+                pbLoading.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -125,33 +131,36 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onComplete(Bitmap result) {
-                        /* save the image - I'm gonna use JPEG */
-                final Bitmap.CompressFormat mFormat = Bitmap.CompressFormat.JPEG;
-                        /* don't forget to include the extension into the file name */
-                final File myImageFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
-                        File.separator + "image_test" + File.separator + "DownInsta" + "." + mFormat.name().toLowerCase());
-                BasicImageDownloader.writeToDisk(myImageFile, result, new BasicImageDownloader.OnBitmapSaveListener() {
-                    @Override
-                    public void onBitmapSaved() {
-                        Toast.makeText(MainActivity.this, "Image saved as: " + myImageFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onBitmapSaveError(BasicImageDownloader.ImageError error) {
-                        Toast.makeText(MainActivity.this, "Error code " + error.getErrorCode() + ": " +
-                                error.getMessage(), Toast.LENGTH_LONG).show();
-                        error.printStackTrace();
-                    }
-
-
-                }, mFormat, false);
-
-                tvPercent.setVisibility(View.GONE);
-                pbLoading.setVisibility(View.GONE);
+                image = result;
+                tvPercent.setVisibility(View.INVISIBLE);
+                pbLoading.setVisibility(View.INVISIBLE);
                 imgDisplay.setImageBitmap(result);
                 imgDisplay.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_in));
             }
         });
         downloader.download(url, true);
+    }
+
+    public void save(){
+        /* save the image - I'm gonna use JPEG */
+        final Bitmap.CompressFormat mFormat = Bitmap.CompressFormat.JPEG;
+                        /* don't forget to include the extension into the file name */
+        final File myImageFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
+                File.separator + "image_test" + File.separator + "DownInsta" + "." + mFormat.name().toLowerCase());
+        BasicImageDownloader.writeToDisk(myImageFile, image, new BasicImageDownloader.OnBitmapSaveListener() {
+            @Override
+            public void onBitmapSaved() {
+                Toast.makeText(MainActivity.this, "Image saved as: " + myImageFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onBitmapSaveError(BasicImageDownloader.ImageError error) {
+                Toast.makeText(MainActivity.this, "Error code " + error.getErrorCode() + ": " +
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+            }
+
+
+        }, mFormat, false);
     }
 }
