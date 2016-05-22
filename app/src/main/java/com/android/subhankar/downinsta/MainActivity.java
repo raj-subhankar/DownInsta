@@ -4,6 +4,8 @@ import android.content.ClipDescription;
 import android.content.Context;
 import android.content.ClipboardManager;
 import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -156,10 +159,20 @@ public class MainActivity extends AppCompatActivity {
                     File.separator + "DownInsta" + File.separator + "image" + num + "." + mFormat.name().toLowerCase());
         }
 
+        final File copy = myImageFile;
+
         BasicImageDownloader.writeToDisk(myImageFile, image, new BasicImageDownloader.OnBitmapSaveListener() {
             @Override
             public void onBitmapSaved() {
                 Toast.makeText(MainActivity.this, "Image saved", Toast.LENGTH_LONG).show();
+                MediaScannerConnection.scanFile(getApplicationContext(),
+                        new String[] { copy.toString() }, null,
+                        new MediaScannerConnection.OnScanCompletedListener() {
+                            public void onScanCompleted(String path, Uri uri) {
+                                Log.i("ExternalStorage", "Scanned " + path + ":");
+                                Log.i("ExternalStorage", "-> uri=" + uri);
+                            }
+                        });
             }
 
             @Override
