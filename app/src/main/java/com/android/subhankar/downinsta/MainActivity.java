@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         tvPercent.setVisibility(View.VISIBLE);
         tvPercent.setText("0%");
         pbLoading.setVisibility(View.VISIBLE);
-        url = editTextUrl.getText().toString()+"media";
+        url = editTextUrl.getText().toString()+"media/?size=l";
         final BasicImageDownloader downloader = new BasicImageDownloader(new BasicImageDownloader.OnImageLoaderListener() {
             @Override
             public void onError(BasicImageDownloader.ImageError error) {
@@ -142,15 +142,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void save(){
+        int num = 0;
         /* save the image - I'm gonna use JPEG */
         final Bitmap.CompressFormat mFormat = Bitmap.CompressFormat.JPEG;
                         /* don't forget to include the extension into the file name */
-        final File myImageFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
-                File.separator + "image_test" + File.separator + "DownInsta" + "." + mFormat.name().toLowerCase());
+        File myImageFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
+                File.separator + "DownInsta" + File.separator + "image" + "." + mFormat.name().toLowerCase());
+
+        while(myImageFile.exists()) {
+            num++;
+            myImageFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
+                    File.separator + "DownInsta" + File.separator + "image" + num + "." + mFormat.name().toLowerCase());
+        }
+
         BasicImageDownloader.writeToDisk(myImageFile, image, new BasicImageDownloader.OnBitmapSaveListener() {
             @Override
             public void onBitmapSaved() {
-                Toast.makeText(MainActivity.this, "Image saved as: " + myImageFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Image saved", Toast.LENGTH_LONG).show();
             }
 
             @Override
