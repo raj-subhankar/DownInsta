@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 image = result;
                 tvPercent.setVisibility(View.INVISIBLE);
                 pbLoading.setVisibility(View.INVISIBLE);
+                imgDisplay.setVisibility(View.VISIBLE);
                 imgDisplay.setImageBitmap(result);
                 imgDisplay.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_in));
             }
