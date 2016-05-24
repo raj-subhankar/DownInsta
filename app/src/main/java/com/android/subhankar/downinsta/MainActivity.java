@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     String url;
     EditText editTextUrl;
     Bitmap image;
+    ImageView imgDisplay;
+    ProgressBar pbLoading;
+    TextView tvPercent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +46,27 @@ public class MainActivity extends AppCompatActivity {
 
         editTextUrl = (EditText) findViewById(R.id.editText);
 
+        imgDisplay = (ImageView) findViewById(R.id.imageView);
+        tvPercent = (TextView) findViewById(R.id.tvProgress);
+        pbLoading = (ProgressBar) findViewById(R.id.progressBar);
+
         Button btnPasteUrl = (Button) findViewById(R.id.btnPasteUrl);
         btnPasteUrl.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 onClickButtonPasteToUrlField(view);
+            }
+        });
+
+        Button btnReset = (Button) findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                imgDisplay.setVisibility(View.INVISIBLE);
+                editTextUrl.setText("");
+                tvPercent.setText("0%");
+                pbLoading.setProgress(0);
+
             }
         });
 
@@ -106,10 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void download(){
-        final ImageView imgDisplay = (ImageView) findViewById(R.id.imageView);
         //imgDisplay.setImageResource(RES_PLACEHOLDER);
-        final TextView tvPercent = (TextView) findViewById(R.id.tvProgress);
-        final ProgressBar pbLoading = (ProgressBar) findViewById(R.id.progressBar);
         imgDisplay.setVisibility(View.INVISIBLE);
         tvPercent.setVisibility(View.VISIBLE);
         tvPercent.setText("0%");
