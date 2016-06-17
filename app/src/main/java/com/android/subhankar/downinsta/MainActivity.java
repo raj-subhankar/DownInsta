@@ -21,6 +21,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgDisplay;
     ProgressBar pbLoading;
     TextView tvPercent;
+    LinearLayout tvHowTo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         imgDisplay = (ImageView) findViewById(R.id.imageView);
         tvPercent = (TextView) findViewById(R.id.tvProgress);
         pbLoading = (ProgressBar) findViewById(R.id.progressBar);
+        tvHowTo = (LinearLayout) findViewById(R.id.tvHowTo);
 
         Button btnPasteUrl = (Button) findViewById(R.id.btnPasteUrl);
         btnPasteUrl.setOnClickListener(new View.OnClickListener(){
@@ -128,8 +131,10 @@ public class MainActivity extends AppCompatActivity {
     public void download(){
         //imgDisplay.setImageResource(RES_PLACEHOLDER);
         imgDisplay.setVisibility(View.INVISIBLE);
+        tvHowTo.setVisibility(View.INVISIBLE);
         tvPercent.setVisibility(View.VISIBLE);
         tvPercent.setText("0%");
+        pbLoading.setProgress(0);
         pbLoading.setVisibility(View.VISIBLE);
         url = editTextUrl.getText().toString()+"media/?size=l";
         final BasicImageDownloader downloader = new BasicImageDownloader(new BasicImageDownloader.OnImageLoaderListener() {
@@ -168,12 +173,12 @@ public class MainActivity extends AppCompatActivity {
         final Bitmap.CompressFormat mFormat = Bitmap.CompressFormat.JPEG;
                         /* don't forget to include the extension into the file name */
         File myImageFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
-                File.separator + "DownInsta" + File.separator + "image" + "." + mFormat.name().toLowerCase());
+                File.separator + "DownInsta" + File.separator + "instagram" + "." + mFormat.name().toLowerCase());
 
         while(myImageFile.exists()) {
             num++;
             myImageFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
-                    File.separator + "DownInsta" + File.separator + "image" + num + "." + mFormat.name().toLowerCase());
+                    File.separator + "DownInsta" + File.separator + "instagram" + num + "." + mFormat.name().toLowerCase());
         }
 
         final File copy = myImageFile;

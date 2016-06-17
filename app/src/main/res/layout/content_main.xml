@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeeee"
+    android:background="#fff"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 <RelativeLayout
     android:layout_width="match_parent"
@@ -28,10 +28,53 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         android:id="@+id/imageView"
         android:layout_below="@+id/btnPasteUrl"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/tvHowTo"
+        android:layout_below="@+id/btnPasteUrl"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Instructions"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="1. Copy Share URL of the image you want to download from Instagram."
+            android:id="@+id/textView2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="2. Open Downinsta and click PASTE URL."
+            android:id="@+id/textView3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="3. Click Save Icon to save image."
+            android:id="@+id/textView4" />
+
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
