@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#fff"
-    tools:context="com.android.subhankar.downinsta.MainActivity">
+    tools:context="com.yellowsoft.subhankar.downinsta.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.android.subhankar.downinsta;
+package com.yellowsoft.subhankar.downinsta;
 
 import android.content.ClipDescription;
 import android.content.Context;
@@ -27,7 +27,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

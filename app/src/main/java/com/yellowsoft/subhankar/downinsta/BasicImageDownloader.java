@@ -1,4 +1,4 @@
-package com.android.subhankar.downinsta;
+package com.yellowsoft.subhankar.downinsta;
 
 /**
  * Created by subhankar on 5/10/2016.

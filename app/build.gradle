@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.android.subhankar.downinsta"
+        applicationId "com.yellowsoft.subhankar.downinsta"
         minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
