@@ -78,7 +78,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                save();
+                if(editTextUrl.getText().toString().trim().length() == 0)
+                    Snackbar.make(view, "Please paste Instagram share URL.", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                else
+                    save();
+
+
             }
         });
     }
