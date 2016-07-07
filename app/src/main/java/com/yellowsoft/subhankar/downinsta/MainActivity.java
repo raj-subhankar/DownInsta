@@ -3,6 +3,7 @@ package com.yellowsoft.subhankar.downinsta;
 import android.content.ClipDescription;
 import android.content.Context;
 import android.content.ClipboardManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -103,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
+            startActivity(new Intent(this, AboutActivity.class));
             return true;
         }
 
