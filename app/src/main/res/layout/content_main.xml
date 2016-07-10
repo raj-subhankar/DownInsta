@@ -25,7 +25,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:id="@+id/imageView"
@@ -106,7 +106,7 @@
             android:id="@+id/progressBar"
             android:indeterminate="false"
             android:visibility="invisible"
-            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignBottom="@+id/tvHowTo"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="140dp" />
 
@@ -117,16 +117,18 @@
             android:text="Small Text"
             android:id="@+id/tvProgress"
             android:visibility="invisible"
+            android:layout_alignBottom="@+id/progressBar"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reset"
             android:id="@+id/btnReset"
-            android:layout_below="@+id/editText"
-            android:layout_toLeftOf="@+id/tvProgress"
-            android:layout_toStartOf="@+id/tvProgress" />
+            android:layout_above="@+id/tvHowTo"
+            android:layout_toLeftOf="@+id/progressBar"
+            android:layout_toStartOf="@+id/progressBar" />
     </RelativeLayout>
 </ScrollView>
