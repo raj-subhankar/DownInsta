@@ -9,7 +9,9 @@ Now that you have a fork, you will need to clone it to your computer.
 
 Using a terminal, clone your fork: 
 
-`git clone git@github.com:Lyxnx/DownInsta.git`
+`git clone https://github.com/Lyxnx/DownInsta.git`
+
+![git clone](https://github.com/Lyxnx/DownInsta/raw/master/img/git-clone.png)
 
 _**Your fork's link will be different**_
 
@@ -17,7 +19,7 @@ Afterwards, you will need a new remote so you can grab upstream changes from thi
 To do this, you will need the link for this repo rather than your fork. 
 Once you have that, execute this from a terminal:
 
-`git remote add upstream git@github.com:raj-subhankar/DownInsta.git`
+`git remote add upstream https://github.com/raj-subhankar/DownInsta.git`
 
 Now you should have 2 remotes for this project on your local disk:
 1. _origin_ - this points to your fork of this project.
@@ -61,11 +63,16 @@ This will create the branch on your GitHub project. The `-u` flag links this bra
 one so that in the future, you can simply type `git push origin`.
 
 Now go to your browser and navigate to your fork (https://github.com/Lyxnx/DownInsta in my case)
-At the top you'll see a handy 'Compare & pull request' button. Press it and you'll be taken to the
-pull request page.
+At the top you'll see a handy 'Pull Request' button. 
+
+![pr button](https://github.com/Lyxnx/DownInsta/raw/master/img/pr-button.png)
+
+Press it and you'll be taken to the pull request page.
 
 * Ensure that the base fork points to this repository and the correct branch.
 * Also make sure that the head fork also points to your repository.
+
+![pr](https://github.com/Lyxnx/DownInsta/raw/master/img/pr.png)
 
 Provide a good title for the pull request and explain what it does and why you have done it.
 
