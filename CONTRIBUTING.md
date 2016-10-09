@@ -11,6 +11,8 @@ Using a terminal, clone your fork:
 
 `git clone https://github.com/Lyxnx/DownInsta.git`
 
+It should look something like this:
+
 ![git clone](https://github.com/Lyxnx/DownInsta/raw/master/img/git-clone.png)
 
 _**Your fork's link will be different**_
