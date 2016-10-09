@@ -13,7 +13,7 @@ Using a terminal, clone your fork:
 
 It should look something like this:
 
-![git clone](https://github.com/Lyxnx/DownInsta/raw/master/img/git-clone.png)
+![git clone](https://github.com/raj-subhankar/DownInsta/raw/master/img/git-clone.png)
 
 _**Your fork's link will be different**_
 
@@ -67,14 +67,14 @@ one so that in the future, you can simply type `git push origin`.
 Now go to your browser and navigate to your fork (https://github.com/Lyxnx/DownInsta in my case)
 At the top you'll see a handy 'Pull Request' button. 
 
-![pr button](https://github.com/Lyxnx/DownInsta/raw/master/img/pr-button.png)
+![pr button](https://github.com/raj-subhankar/DownInsta/raw/master/img/pr-button.png)
 
 Press it and you'll be taken to the pull request page.
 
 * Ensure that the base fork points to this repository and the correct branch.
 * Also make sure that the head fork also points to your repository.
 
-![pr](https://github.com/Lyxnx/DownInsta/raw/master/img/pr.png)
+![pr](https://github.com/raj-subhankar/DownInsta/raw/master/img/pr.png)
 
 Provide a good title for the pull request and explain what it does and why you have done it.
 
