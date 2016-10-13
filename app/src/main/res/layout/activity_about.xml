@@ -13,9 +13,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Version 1.1"
+        android:text="DownInsta Version 1.1"
         android:id="@+id/textView6"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ImageView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mit"
+        android:layout_below="@+id/textView6"
+        android:id="@+id/imageView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Open Source Initiative"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/imageView" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Github Repo Link"
+        android:id="@+id/textView8"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/textView7" />
+
 </RelativeLayout>
