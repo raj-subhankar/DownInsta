@@ -1,67 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    android:background="#fff"
+    tools:context="com.yellowsoft.subhankar.downinsta.AboutActivity">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
-        android:src="@mipmap/ic_launcher" />
-
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="DownInsta"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="3dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/app_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="6dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="version 0.0.1" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <ImageView
-          android:id="@+id/mit"     
-        android:src="@mipmap/ic_launcher"
-        android:layout_margin="16dp"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/oper"
-        android:layout_width="48dp"
-        android:layout_height="48dp" />
-    <TextView
-        android:id="@+id/oper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Open Source Project"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+    </android.support.design.widget.AppBarLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:padding="16dp"
-        android:layout_marginBottom="56dp"
-        android:text="Contribute"
-        android:theme="@style/MyDarkButton" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fff">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="DownInsta"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="version 0.0.1" />
+
+        <ImageView
+            android:id="@+id/mit"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="16dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/oper"
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+        <TextView
+            android:id="@+id/oper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Open Source Project"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:padding="16dp"
+            android:layout_marginBottom="56dp"
+            android:text="Contribute"
+            android:theme="@style/MyDarkButton" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="109dp"
+            android:src="@drawable/downinsta_logo"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
