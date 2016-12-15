@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar pbLoading;
     TextView tvPercent;
     LinearLayout tvHowTo;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +71,13 @@ public class MainActivity extends AppCompatActivity {
                 editTextUrl.setText("");
                 tvPercent.setText("0%");
                 pbLoading.setProgress(0);
+                fab.setVisibility(View.GONE);
 
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setVisibility(View.GONE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
                 imgDisplay.setVisibility(View.VISIBLE);
                 imgDisplay.setImageBitmap(result);
                 imgDisplay.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_in));
+                fab.setVisibility(View.VISIBLE);
             }
         });
         downloader.download(url, true);
